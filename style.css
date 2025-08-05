@@ -12,7 +12,7 @@ body {
 }
 
 .main {
-    background-image: url("./images/bg.jpg");
+    background-image: url("./image/bg.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: max(1000 px, 100 vw);
