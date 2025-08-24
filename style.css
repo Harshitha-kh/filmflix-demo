@@ -4,7 +4,8 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    /* Using Poppins as a more general sans-serif fallback for better consistency */
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -15,11 +16,10 @@ body {
     background-image: url("./image/bg.jpg");
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: max(1000 px, 100 vw);
+    /* Combined background-size properties for better control */
+    background-size: cover; /* Ensures image covers the area */
     height: 70vh;
     position: relative;
-    background-size: cover;
-
 }
 
 .main .box {
@@ -44,7 +44,6 @@ nav img {
     width: 130px;
     position: relative;
     z-index: 10;
-
 }
 
 nav button {
@@ -53,7 +52,6 @@ nav button {
 }
 
 .hero {
-
     height: calc(100% - 62px);
     display: flex;
     align-items: center;
@@ -69,27 +67,24 @@ nav button {
 }
 
 .hero> :nth-child(1) {
-    font-family: "Poppins", serif;
+    font-family: "Poppins", serif; /* Kept Poppins for consistency with previous updates */
     font-weight: 700;
     font-size: 48px;
     text-align: center;
-
-
 }
 
 .hero> :nth-child(2) {
     font-weight: 400;
     font-size: 24px;
     text-align: center;
-
 }
 
 .hero> :nth-child(3) {
     font-weight: 400;
     font-size: 20px;
     text-align: center;
-
 }
+
 .first {
     max-width: 100%;
 }
@@ -122,6 +117,10 @@ nav button {
 .btn-red-sm {
     background-color: red;
     color: white;
+    /* Added padding and border-radius for consistency with other buttons */
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: none; /* Removed border as per common Netflix button style */
 }
 
 .herobuttons {
@@ -129,90 +128,49 @@ nav button {
     align-items: center;
     justify-content: center;
     gap: 16px;
-
 }
 
 .main input {
     padding: 7px 101px 8px 14px;
     font-family: "Poppins", serif;
-
     color: white;
     font-size: 12px;
     border-radius: 4px;
     background-color: rgba(23, 23, 23, 0.7);
     border: 1px solid rgba(246, 238, 238, 0.7);
-
 }
 
+/* Section Styling (First, Second, Third) */
 .first {
     display: flex;
     justify-content: center;
     max-width: 70vw;
     color: white;
     margin: auto;
-    justify-content: center;
     align-items: center;
     padding: 30px;
     gap: 50px;
     position: relative;
-
-}
-
-
-
-@media screen and (max-width : 1300px) {
-    nav {
-        max-width: 90vw;
-    }
-    .first {
-        flex-wrap: wrap;
-        padding: 15px;
-    }
-    
-    .tv {
-        flex-wrap: wrap;
-    }
-
-    .hero> :nth-child(1) {
-
-        font-size: 32px;
-    }
-
-    .hero> :nth-child(2) {
-
-        font-size: 18px;
-
-    }
-
-    .hero> :nth-child(3) {
-
-        font-size: 18px;
-
-    }
-    .herobuttons {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-    
-    }
-    .last {
-        flex-wrap: wrap;
-    }
-   
-    
-}
-
-
-.second {
-    gap: 50px;
+    /* Removed flex-wrap here as it's better handled in media queries for responsiveness */
 }
 
 .secimg img {
-
     height: 500px;
     border-radius: 8px;
+    width: 100%; /* Ensure images scale within their container */
+    max-width: 500px; /* Max width for images */
+}
+
+/* Cursor pointer for interactive images & hover effect */
+#pushpaImage,
+#luckybhaskarImage {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out; /* Smooth scale effect on hover */
+}
+
+#pushpaImage:hover,
+#luckybhaskarImage:hover {
+    transform: scale(1.03); /* Slightly enlarge on hover */
 }
 
 .tv {
@@ -220,64 +178,98 @@ nav button {
     font-weight: 800;
     font-style: normal;
     font-size: 48px;
-   
-
 }
 
 .sec {
     font-size: 24px;
     font-weight: 400;
     font-family: "Poppins", serif;
-    
 }
 
 .child {
-    width: 250px;
+    width: 250px; /* This class might not be directly used on an image now, but kept for reference */
 }
 
-.third {
-    gap: 50px;
+.second, .third {
+    gap: 50px; /* Consistent gap for sections */
 }
 
+/* FAQ Section Styling */
 .faq h2 {
     color: white;
-
-
     padding: 25px;
     text-align: center;
-
     font-size: 48px;
     font-weight: 900;
-
+    font-family: "Martel Sans", serif; /* Consistent font with hero heading */
 }
 
 .fbox {
     font-family: "Poppins", serif;
-    transition: all 1s ease-out;
     display: flex;
+    flex-direction: column; /* Stack question and answer vertically */
     background-color: #272727;
-    padding: 34px;
+    padding: 0; /* Important: initial padding is 0, inner divs handle it */
     color: white;
-    padding: 24px;
     max-width: 60vw;
     margin: 18px auto;
-
-    justify-content: space-between;
-    cursor: pointer;
-    font-size: 24px;
-
+    border-radius: 8px; /* Rounded corners for aesthetic */
+    overflow: hidden; /* Important for hiding the overflowing answer */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effects on the entire box */
 }
 
-.fbox:hover {
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px; /* Matches your fbox font size */
+    font-weight: 400; /* Matches your fbox font weight */
+    cursor: pointer; /* Makes the question header clickable */
+    padding: 24px; /* Padding for the header itself */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.question-header:hover {
     background-color: #414141;
 }
 
-svg {
-    color: white;
+.fbox svg {
+    color: white; /* Your original color */
+    filter: invert(1); /* Ensure SVG is white on dark background */
+    transition: transform 0.3s ease-in-out; /* Smooth rotation for the icon */
 }
 
+/* Styles for the answer content */
+.faq-answer {
+    max-height: 0; /* Initially hide the answer */
+    overflow: hidden; /* Hide content that exceeds max-height */
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Smooth transition for showing/hiding */
+    padding: 0 24px; /* Initial padding, will expand with max-height */
+    text-align: left;
+    font-size: 20px; /* Slightly smaller than question for readability */
+    line-height: 1.5;
+}
+
+.faq-answer p {
+    margin-top: 15px; /* Spacing between paragraphs in the answer */
+    margin-bottom: 15px;
+}
+
+/* When an fbox is 'active', show its answer */
+.fbox.active .faq-answer {
+    max-height: 500px; /* Adjust this value if your answers are very long */
+    padding: 20px 24px; /* Add padding when active */
+}
+
+/* Rotate the SVG icon when the fbox is 'active' */
+.fbox.active .question-header svg {
+    transform: rotate(45deg); /* Rotates the plus to an 'X' */
+}
+
+
+/* Footer Styles */
 footer {
-    color: white;
+    color: white; /* Changed from #737373 to white for better contrast with your general style */
     max-width: 60vw;
     margin: auto;
     padding: 34px;
@@ -289,27 +281,99 @@ footer .questions {
 
 .footer a {
     font-size: 14px;
-    color: white;
+    color: white; /* Changed from #737373 to white */
+    text-decoration: none; /* Ensure links are not underlined by default */
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #ccc; /* Lighter white on hover */
+    text-decoration: underline; /* Underline on hover for interactivity */
 }
 
 .footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     color: white;
-
-}
-
-@media screen and (max-width : 1300px) {
-    .footer {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 25px;
-
-    }
 }
 
 .footer-item {
     display: flex;
     flex-direction: column;
     gap: 23px;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width : 1300px) {
+    nav {
+        max-width: 90vw;
+    }
+    .first {
+        flex-wrap: wrap;
+        padding: 15px;
+        flex-direction: column; /* Stack vertically on smaller screens */
+        text-align: center;
+    }
+    .first > div { /* Center text content in sections */
+        text-align: center;
+        padding: 0 20px;
+    }
+    .tv {
+        font-size: 32px;
+    }
+    .sec {
+        font-size: 18px;
+    }
+    .hero> :nth-child(1) {
+        font-size: 32px;
+    }
+    .hero> :nth-child(2) {
+        font-size: 18px;
+    }
+    .hero> :nth-child(3) {
+        font-size: 18px;
+    }
+    .herobuttons {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+    }
+    .main input {
+        width: 80vw; /* Make input wider on small screens */
+        padding: 14px 14px; /* Adjust padding */
+    }
+    .btn-red {
+        width: 80vw; /* Make button wider on small screens */
+        text-align: center;
+    }
+    .last {
+        flex-wrap: wrap;
+    }
+    .footer {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+    .footer-item {
+        align-items: center;
+    }
+
+    /* FAQ Responsive Adjustments */
+    .faq h2 {
+        font-size: 2rem;
+    }
+    .fbox {
+        max-width: 90vw;
+    }
+    .question-header {
+        font-size: 1.2rem;
+        padding: 18px;
+    }
+    .faq-answer {
+        font-size: 1rem;
+        padding: 0 18px;
+    }
+    .fbox.active .faq-answer {
+        padding: 15px 18px;
+    }
 }

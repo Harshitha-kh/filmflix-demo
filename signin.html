@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Sign In</title>
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom styles if needed (optional) -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #141414; /* Dark background like Netflix */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen p-4">
+    <div class="bg-black bg-opacity-80 p-8 md:p-10 rounded-lg shadow-xl w-full max-w-md">
+        <h1 class="text-white text-3xl font-bold mb-8 text-center rounded-md">Sign In</h1>
+
+        <form class="space-y-6">
+            <div>
+                <label for="email" class="sr-only">Email or phone number</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email or phone number"
+                    class="w-full p-4 bg-gray-700 text-white rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-red-600 transition duration-200"
+                    required
+                >
+            </div>
+            <div>
+                <label for="password" class="sr-only">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                    class="w-full p-4 bg-gray-700 text-white rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-red-600 transition duration-200"
+                    required
+                >
+            </div>
+            <button
+                type="submit"
+                class="w-full py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-md transition duration-200 shadow-md rounded-md"
+            >
+                Sign In
+            </button>
+            <div class="flex items-center justify-between text-sm">
+                <div class="flex items-center">
+                    <input type="checkbox" id="rememberMe" class="form-checkbox h-4 w-4 text-red-600 bg-gray-700 border-gray-600 rounded focus:ring-red-500 rounded-md">
+                    <label for="rememberMe" class="ml-2 text-gray-400">Remember me</label>
+                </div>
+                <a href="#" class="text-gray-400 hover:text-white rounded-md transition duration-200">Need help?</a>
+            </div>
+            <div class="text-center mt-6">
+                <p class="text-gray-500">New to Netflix? <a href="#" class="text-white hover:underline rounded-md">Sign up now</a>.</p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
